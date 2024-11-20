@@ -6,13 +6,13 @@ import {faTrash} from  '@fortawesome/free-solid-svg-icons'
 type TodoProps = {
   todo:TodoType;
   deletTodo: (id:string)=>boolean;
-  toggleComplete:(id:string)=>void;
+  toggleComplete:(id:string)=>boolean;
 }
 
 function Todo({todo,deletTodo,toggleComplete}:TodoProps) {
   return (
     <div className="Todo">
-      <p
+      <p onClick={()=>toggleComplete(todo.id)}
         className= {todo.completed ? 'completed' : ""}
       >
         {todo.title}
