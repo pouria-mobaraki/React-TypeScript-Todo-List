@@ -1,9 +1,11 @@
 import React from 'react'
 import { Todo as TodoType } from './Todos.type'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faTrash} from  '@fortawesome/free-solid-svg-icons'
 
 type TodoProps = {
   todo:TodoType;
-  deletTodo: (id:string)=>void;
+  deletTodo: (id:string)=>boolean;
   toggleComplete:(id:string)=>void;
 }
 
@@ -15,7 +17,7 @@ function Todo({todo,deletTodo,toggleComplete}:TodoProps) {
       >
         {todo.title}
       </p>
-      {/* <div><FontAwesomeIcon icon={faTrash} /></div> */}
+      <div><FontAwesomeIcon icon={faTrash} onClick={(()=> deletTodo(todo.id))}/></div>
     </div>
   )
 }
