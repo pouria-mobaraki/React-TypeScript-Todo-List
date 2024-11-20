@@ -1,14 +1,21 @@
 import React from 'react'
+import { Todo as TodoType } from './Todos.type'
 
-function Todo() {
+type TodoProps = {
+  todo:TodoType;
+  deletTodo: (id:string)=>void;
+  toggleComplete:(id:string)=>void;
+}
+
+function Todo({todo,deletTodo,toggleComplete}:TodoProps) {
   return (
     <div className="Todo">
       <p
-        className="completed" // or completed className
+        className= {todo.completed ? 'completed' : ""}
       >
-        Test Todo Title :))
+        {todo.title}
       </p>
-      <div>{/* <FontAwesomeIcon icon={faTrash} /> */}</div>
+      {/* <div><FontAwesomeIcon icon={faTrash} /></div> */}
     </div>
   )
 }

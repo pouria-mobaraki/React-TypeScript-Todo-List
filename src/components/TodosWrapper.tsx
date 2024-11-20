@@ -11,9 +11,17 @@ function TodosWrapper() {
    setTodos([...todos,{
     id:crypto.randomUUID(),
     title:title,
-    completed:false
+    completed:true
    }])
    return true
+  }
+
+  const deletTodo = (id:string) => {
+    // /code.../
+  }
+
+  const toggleComplete = (id:string) =>  {
+    // code...
   }
 
   return (
@@ -26,7 +34,7 @@ function TodosWrapper() {
     {/* display todos */}
     
     {todos.map(todo =>(
-      <Todo />
+      <Todo todo={todo} deletTodo = {deletTodo} toggleComplete={toggleComplete}/>
     ))}
   </div>
   )
